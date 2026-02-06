@@ -11,4 +11,26 @@ body {
     margin: 0;
 }
 
-/* create additional rules below:  */
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#home {
+    background: #176baf;
+}
+
+#bio {
+    background: #4e40ce;
+}
+
+#portfolio {
+    background: #0f4e81;
+}
+
+#contact {
+    background: #176baf;
+}
