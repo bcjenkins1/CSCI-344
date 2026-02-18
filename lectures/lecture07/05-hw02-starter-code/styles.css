@@ -7,33 +7,60 @@ body {
     background: #F4F4F4;
 }
 
-/* Begin Debugging Code */
-header,
-main,
-main section,
-nav,
-.logo {
-    border: solid 2px #CCC;
-    padding: 10px;
-    margin: 10px;
+
+
+
+.top-nav {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: white;
+    margin: 0px;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 30px;
+    padding-right: 30px;
+    align-items: center;
 }
 
-.logo {
-    font-size: 1em;
-    font-weight: normal;
+.post {
+    min-height: 300px;    
+    border: solid 1px black;
+    margin-bottom: 50px;
 }
 
-aside,
-body>header,
-main,
-.news-feed {
-    border: solid 4px #000;
-    padding: 10px;
-    margin: 10px;
-    font-family: monospace;
+.stories {
+    min-height: 100px;
+    border: solid 1px black;
+    margin-bottom: 50px;
 }
 
-/* End Debugging Code */
+aside {
+    position: fixed;
+    top: 100px;
+    left: 65vw;
+    background-color: white;
+    min-height: 80vh;
+    width: calc(35vw - 30px);  /*spaces are needed*/
+}
+
+main {
+    margin-top: 23px;
+    width: calc(60vw - 30px); /*spaces are needed*/
+    margin-left: 5vw;
+}
 
 
-@media (max-width: 800px) {}
+
+
+@media (max-width: 800px) {
+    main {
+        width: auto;
+        margin-left: 2vw;
+        margin-right: 2vw;
+    }
+
+    aside {
+        display: none;
+    }
+}

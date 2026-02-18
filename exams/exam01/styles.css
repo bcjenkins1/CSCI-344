@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap');
+
+
+/* 3.1 Body */
+body {
+    background-color: #f0f4ef;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+/* 3.2 Header + nav */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222222;
+    height: 10vh;
+    padding-left: 10vh;
+    padding-right: 10vh;
+}
+
+h1 {
+    color: white;
+    font-size: 1.2em;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    padding-left: 10px;
+}
+
+/* 3.3 Custom font */
+h2 {
+    font-family: "Tangerine", cursive;
+    font-style: normal;
+    font-size: 60px;
+}
+
+/* 3.4 Main */
+main {
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
+/* 3.5 Gallery layout */
+.photo-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+/* 3.6 Card styling */
+.card {
+    background-color: white;
+    border: lightgray;
+}
+
+.card img {
+    width: 100%;
+}
+
+.card p {
+    padding: 20px;
+}
+
+/* 3.7 Footer */
+footer {
+    display: flex;
+    justify-content: center;
+    background-color: #222222;
+    color: white;
+}
+
+/* 3.8 Media queries */
+@media screen and (max-width: 800px) {
+    .photo-container{
+        grid-template-columns: 1fr;
+        }    
+}
