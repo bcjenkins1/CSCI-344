@@ -46,6 +46,7 @@ body {
     min-height: 300px;    
     border: solid 1px black;
     margin-bottom: 50px;
+    background-color: white;
 }
 
 .stories {
@@ -107,7 +108,8 @@ h4, p {
     align-items: center;
     text-align: center;
     gap: 25px;
-    padding-top: 10px;
+    padding-top: 20px;
+    padding-left: 20px;
 }
 
 .stories h5 {
@@ -116,6 +118,25 @@ h4, p {
 
 .stories img {
     border-radius: 50%;
+}
+
+.post-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-family: "Comfortaa", sans-serif;
+}
+
+.menu {
+    border: none;
+    background-color: transparent;
+}
+
+.post img{
+    width: 100%;
+    
 }
 
 
