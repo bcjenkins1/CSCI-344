@@ -12,9 +12,9 @@ function createProductCard(productOBJ){
     return `
         <section class="product-card">
             <h2>${productOBJ.name}</h2>
-            <div>${formatPrice(productOBJ.price)}</div>
-            <p>${productOBJ.description}</p>
-            <span>${productOBJ.category}</span>
+            <div class="price">${formatPrice(productOBJ.price)}</div>
+            <p class="description">${productOBJ.description}</p>
+            <span class="category">${productOBJ.category}</span>
             ${showInStockBadge(productOBJ.inStock)}
         </section>`;
 }
