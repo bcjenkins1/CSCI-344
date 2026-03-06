@@ -7,5 +7,5 @@ const students = [
 ];
 
 // Your code here
-numbers.forEach(students.name)
+students.forEach(student => console.log(student.name));
 //output is name only

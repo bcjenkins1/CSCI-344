@@ -10,4 +10,5 @@ const students = [
 // Hint: Use map + build a template literal (backticks) in the callback function
 //name and major w/ map
 
-const mstudent = students.map();
+const mstudent = students.map(student => `<p><strong>${student.name}:</strong> ${student.major}</p>`);
+console.log(mstudent);

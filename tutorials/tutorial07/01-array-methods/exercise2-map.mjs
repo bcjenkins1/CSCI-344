@@ -7,4 +7,5 @@ const students = [
 ];
 
 // Your code here
-const names = numbers.map();
+const names = students.map(student => student.name);
+console.log(names);

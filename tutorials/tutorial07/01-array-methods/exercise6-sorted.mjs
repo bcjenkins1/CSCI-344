@@ -8,4 +8,5 @@ const students = [
 
 // Your code here
 //alphabetic by major
-const byMajor = students.toSorted();
+const byMajor = students.toSorted((a, b) => a.major.localeCompare(b.major));
+console.log(byMajor);

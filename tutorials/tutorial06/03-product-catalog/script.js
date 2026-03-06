@@ -36,4 +36,14 @@ function renderProducts(){
 
 }
 
+function addItemToList(event) {
+  // Prevent the default form submission behavior (which would reload the page)
+  event.preventDefault();
+  // TODO: Add your code here
+  
+}
+
+const productForm = document.querySelector("#productForm");
+productForm.addEventListener('submit', addItemToList);
+
 renderProducts();

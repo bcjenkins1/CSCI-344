@@ -8,5 +8,6 @@ const students = [
 
 // Your code here
 
-const mcsci = students.filter();
+const mcsci = students.filter(student => student.major == "Computer Science");
+console.log(mcsci);
 //all things of students w/ csci major

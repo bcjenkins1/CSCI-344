@@ -8,5 +8,6 @@ const students = [
 
 // Your code here
 
-const mcsci = students.filter();
+const mcsci = students.filter(student => student.age <= 20);
+console.log(mcsci);
 //all things of students w/ age < 20

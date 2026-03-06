@@ -9,4 +9,5 @@ const students = [
 // Your code here
 //sort by grade greatest to least
 
-const byGrade = students.toSorted();
+const byGrade = students.toSorted((a, b) => b.grade - a.grade);
+console.log(byGrade);
