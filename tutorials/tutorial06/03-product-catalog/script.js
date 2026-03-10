@@ -1,6 +1,6 @@
 const products = [
     {name: "a", price: 4, description: "a", category: "a", inStock: true},
-    {name: "Nintendo Wii", price: 199.99, description: "Good condition Nintendo Wii system", category: "Entertainment", inStock: false},
+    {name: "Nintendo Wii", price: 199.99, description: "Good condition Nintendo Wii system", category: "Electronics", inStock: false},
     {name: "a", price: 4, description: "a", category: "a", inStock: true}
 ];
 
@@ -40,6 +40,26 @@ function addItemToList(event) {
   // Prevent the default form submission behavior (which would reload the page)
   event.preventDefault();
   // TODO: Add your code here
+  const productNameEl = document.querySelector('#productName');
+  const productPriceEl = document.querySelector('#productPrice');
+  const productDescriptionEl = document.querySelector('#productDescription');
+  const productCategoryEl = document.querySelector('#productCategory');
+  const productInStockEl = document.querySelector('#productInStock');
+
+  const newProduct = {
+    name: productNameEl.value,
+    price: Number(productPriceEl.value),
+    description: productDescriptionEl.value,
+    category: productCategoryEl.value,
+    inStock: productInStockEl.checked //boolean
+    };
+
+    products.push(newProduct);
+
+    //clear form
+    document.querySelector("#productForm").reset();
+
+    renderProducts();
   
 }
 
