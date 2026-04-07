@@ -160,18 +160,11 @@ function postToHTML(post) {
                     <p>
                         <strong>${post.user.username}</strong>
                         ${post.caption}
-                        <button class="button">more</button>                                                MORE BUTTON
+                        <button class="button">more</button>
                     </p>
                 </div>
-                <p class="text-sm mb-3">                                                                      COMMENT
-                    <strong>lizzie</strong>
-                    Here is a comment text text text text text text text text.
-                </p>
-                <p class="text-sm mb-3">                                                                      COMMENT
-                    <strong>vanek97</strong>
-                    Here is another comment text text text.
-                </p>
                 <p class="uppercase text-gray-500 text-xs">${post.display_time}</p>
+                ${getComments(post.comments)}
             </div>
             <div class="flex justify-between items-center p-3">
                 <div class="flex items-center gap-3 min-w-[80%]">
@@ -184,13 +177,27 @@ function postToHTML(post) {
     `;
 }
 
-function getComments() {
-//comment thing
-//comment made up of username and comment
-//if none, empty
-//if(# == 1), show 1 only
-//if(# > 1), show "view all # comments" # = number of comments
-// <button aria-label="view all comments">view all ${#} comments</button>
+function getComments(comments) {
+    if(comments.length == 0) {
+        return "";
+    }
+    if(comments.length == 1){
+        return `
+            <p class="text-sm mb-3">
+                <strong>${comments[0].user.username}</strong>
+                ${comments.text}
+            </p>
+        `;
+    }
+    if(comments.length > 1) {
+        return `
+        <button aria-label="view all comments">view all ${comments.length} comments</button>
+        <p class="text-sm mb-3">
+            <strong>${comments[comments.length-1].user.username}</strong>
+            ${comments[comments.length-1].text}
+        </p>
+        `
+    }
 }
 
 
