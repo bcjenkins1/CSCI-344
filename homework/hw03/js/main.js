@@ -183,12 +183,15 @@ function postToHTML(post) {
         </section>
     `;
 }
+
+function getComments() {
 //comment thing
 //comment made up of username and comment
 //if none, empty
-//if 1, show 1 only
-//if more than one, show "view all # comments" # = number of comments
-
+//if(# == 1), show 1 only
+//if(# > 1), show "view all # comments" # = number of comments
+// <button aria-label="view all comments">view all ${#} comments</button>
+}
 
 
 function getLikeButton(post) {
