@@ -9,7 +9,7 @@ export default function Post({post}) {
                 <h3 className="text-lg font-Comfortaa font-bold">{post.user.username}</h3>
                 <button className="icon-button"><i className="fas fa-ellipsis-h"></i></button>
             </div>
-            <img src={post.image_url} alt="placeholder image" width="300" height="300"
+            <img src={post.image_url} alt= {post.alt_text || post.caption} width="300" height="300"
                 className="w-full bg-cover" />
             <div className="p-4">
                 <div className="flex justify-between text-2xl mb-3">
@@ -28,7 +28,7 @@ export default function Post({post}) {
                         <strong>{post.user.username}</strong>
                         Here is a caption about the photo.
                         Text text text text text text text text text
-                        text text text text text text text text... <button className="button">more</button>
+                        <button className="button">more</button>
                     </p>
                 </div>
                 <p className="text-sm mb-3">
