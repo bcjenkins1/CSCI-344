@@ -1,6 +1,8 @@
 import React from "react";
+import BookmarkBtn from "./BookmarkBtn.jsx";
+import LikeBtn from "./LikeBtn.jsx";
 
-export default function Post({post}) {
+export default function Post({post, token}) {
 
 
     return (
@@ -9,25 +11,26 @@ export default function Post({post}) {
                 <h3 className="text-lg font-Comfortaa font-bold">{post.user.username}</h3>
                 <button className="icon-button"><i className="fas fa-ellipsis-h"></i></button>
             </div>
-            <img src={post.image_url} alt= {post.alt_text || post.caption} width="300" height="300"
+            <img src={post.image_url} alt= {post.alt_text || post.caption} 
+                width="300" 
+                height="300"
                 className="w-full bg-cover" />
             <div className="p-4">
                 <div className="flex justify-between text-2xl mb-3">
                     <div>
-                        <button><i className="fas fa-heart text-red-600"></i></button>
+                        <LikeBtn post={post} token={token} />
                         <button><i className="far fa-comment"></i></button>
                         <button><i className="far fa-paper-plane"></i></button>
                     </div>
                     <div>
-                        <button><i className="fas fa-bookmark"></i></button>
+                        <BookmarkBtn post={post} token={token} />
                     </div>
                 </div>
-                <p className="font-bold mb-3">30 likes</p>
+                <p className="font-bold mb-3">{post.likes.length + "likes"}</p>
                 <div className="text-sm mb-3">
                     <p>
                         <strong>{post.user.username}</strong>
-                        Here is a caption about the photo.
-                        Text text text text text text text text text
+                        {" " + post.caption}
                         <button className="button">more</button>
                     </p>
                 </div>
