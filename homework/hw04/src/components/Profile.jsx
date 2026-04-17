@@ -15,10 +15,10 @@ export default function Profile({ token }) {
     }, []);
     return (
         <header className="flex gap-4 items-center">
-            <p>
+            <div>
                 <img src={profile.thumb_url} className="rounded-full w-16" alt="photo of {profile.username}"/>
                 <h2 className="font-Comfortaa font-bold text-2xl">{profile.username}</h2>
-            </p>
+            </div>
         </header>
     );
 }
