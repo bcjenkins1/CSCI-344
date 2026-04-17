@@ -1,0 +1,23 @@
+1. Name three tables that correspond to the Resource types that are defined in api.config.yaml. 
+    Which table is not defined by your YAML but still exists? (Hint: accounts.)
+
+
+    
+2. Pick one resource table (e.g. sneakers). 
+    Which columns look like they are referencing data in other tables (this is called a “foreign key”)?
+3. What looks different between the required and optional fields in the database?
+4. In one sentence: what is the difference between changing data with npm run seed and changing data only through the REST API or data grid?
+5. Why should you run npm run generate again before npm run seed if you just edited api.config.yaml?
+6. How did the list request URL change when you applied the filter(s)? 
+    (Mention the path, any new or removed query parameters, or if only the Network tab showed a change.)
+7. Suppose your Sneakers API endpoint is /api/sneakers and name is marked queryable in api.config.yaml. 
+    What URL would you use for a GET request that asks the server for sneakers whose name includes the substring running?
+8. What is one difference between experimenting in /api/docs and experimenting in the data grid?
+9. What is one advantage of introducing a separate PlantType resource 
+    (with a relation from Plant) instead of keeping species as a plain string on every plant row?
+10. Final project: List at least three REST paths you expect to need for your final project 
+    (they can be placeholders like /api/...). For each, name:
+    a. The resource
+    b. the data fields you’ll need
+    c. Which fields will be queryable
+    d. One relationship you might add (e.g., Sneakers are linked a Brand resource in another table)

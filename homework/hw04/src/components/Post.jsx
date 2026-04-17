@@ -1,6 +1,7 @@
 import React from "react";
 import BookmarkBtn from "./BookmarkBtn.jsx";
 import LikeBtn from "./LikeBtn.jsx";
+import Comments from "./Comments.jsx";
 
 export default function Post({post, token}) {
 
@@ -34,15 +35,8 @@ export default function Post({post, token}) {
                         <button className="button">more</button>
                     </p>
                 </div>
-                <p className="text-sm mb-3">
-                    <strong>lizzie</strong>
-                    Here is a comment text text text text text text text text.
-                </p>
-                <p className="text-sm mb-3">
-                    <strong>vanek97</strong>
-                    Here is another comment text text text.
-                </p>
-                <p className="uppercase text-gray-500 text-xs">1 day ago</p>
+                <Comments comments={post.comments}/>
+                <p className="uppercase text-gray-500 text-xs">{post.display_time}</p>    
             </div>
             <div className="flex justify-between items-center p-3">
                 <div className="flex items-center gap-3 min-w-[80%]">
