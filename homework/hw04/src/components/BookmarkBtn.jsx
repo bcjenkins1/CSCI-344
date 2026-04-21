@@ -1,9 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 
 export default function BookmarkBtn({post, token}) {
+
+    const [bookmarkId, setBookmarkId] = useState(post.current_user_bookmark_id);
     
     async function unBook() {
-    const endpoint = `/api/bookmarks/${post.current_user_bookmark_id}`;
+    const endpoint = `/api/bookmarks/${bookmarkId}`;
 
     const response = await fetch(endpoint, {
         method: "DELETE",
@@ -14,6 +16,7 @@ export default function BookmarkBtn({post, token}) {
     });
     const data = await response.json();
     console.log(data);
+    setBookmarkId(data.id);
     }
 
     async function book() {
@@ -33,9 +36,10 @@ export default function BookmarkBtn({post, token}) {
         });
         const data = await response.json();
         console.log(data);
+        setBookmarkId(data.id);
     }
     
-    if(post.current_user_bookmark_id != undefined) {
+    if(bookmarkId != undefined) {
         return (
         <button 
             aria-label="unbookmark" 

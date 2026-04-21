@@ -1,8 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 
 export default function LikeBtn({post, token}) {
+    
+    const[likeId, setLikeId] = useState(post.current_user_like_id)
+    
     async function unLike () {
-        const endpoint = `/api/likes/${post.current_user_like_id}`;
+        const endpoint = `/api/likes/${likeId}`;
 
         const response = await fetch(endpoint, {
             method: "DELETE",
@@ -13,6 +16,7 @@ export default function LikeBtn({post, token}) {
         });
         const data = await response.json();
         console.log(data);
+        setLikeId(data.id);
     }
 
     async function like () {
@@ -32,9 +36,10 @@ export default function LikeBtn({post, token}) {
         });
         const data = await response.json();
         console.log(data);
+        setLikeId(data.id);
     }
 
-    if (post.current_user_like_id != undefined) {
+    if (likeId != undefined) {
         return (
         <button 
             aria-label="unlike" 

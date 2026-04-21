@@ -19,38 +19,26 @@ export default function Suggestions({ token }) {
                 Suggestions for you
             </p>
 
-            <section className="flex justify-between items-center mb-4 gap-2">
-
-
-
+            <section className="flex justify-between items-center flex-col mb-4 gap-2">
+                {
+                suggestions.map(suggestion => (
+                    <section key={suggestion.id} className="flex justify-between items-center mb-4 gap-2">
+                        <img src={suggestion.thumb_url} className="rounded-full" alt="photo of {suggestion.username}"/>
+                        <div className="w-[180px]">
+                            <p className="font-bold text-sm">{suggestion.username}</p>
+                            <p className="text-gray-500 text-xs">suggested for you</p>
+                        </div>
+                        <button className="text-blue-500 text-sm py-2">follow</button>
+                    </section>
+                ))
+            }
             </section>
         </div>
     );
 }
 
 
-async function showSuggestions() {
-    const endpoint = `${rootURL}/api/suggestions/`
-    const response = await fetch(endpoint, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-            Authorization: "Bearer " + token,
-        },
-    });
 
-    const suggestions = await response.json(); //array of objects
-    console.log(suggestions);
-
-    const suggestionsContainerEl = document.querySelector('#suggestionsContainer');
-    // loop through the first 10 posts
-    suggestions.forEach((suggestion) => {
-        const htmlSnip = suggestionToHTML(suggestion);
-            // build each post's HTML (or call a helper function)
-            // insert the rendered posts into the DOM
-        suggestionsContainerEl.insertAdjacentHTML("beforeend", suggestionToHTML(suggestion));
-    });
-}
 
 function suggestionToHTML(suggestion) {
     return `
