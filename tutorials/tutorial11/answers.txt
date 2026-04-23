@@ -40,7 +40,9 @@ api/sneakers?name=#### where ##### is the query
 9. What is one advantage of introducing a separate PlantType resource 
     (with a relation from Plant) instead of keeping species as a plain string on every plant row?
 
-
+You can avoid spelling mistakes by having the type reference a preexisting variable instead of 
+writing it however many times.  Given it's a shared category, if changes need to be made, one 
+can much easier change the PlantType table than change multiple instances of hard-coded data.
 
 10. Final project: List at least three REST paths you expect to need for your final project 
     (they can be placeholders like /api/...). For each, name:
