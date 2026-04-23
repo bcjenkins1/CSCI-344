@@ -11,25 +11,16 @@ import {
 
 
 export default function BarChartComponent({ items }) {
-  console.log(items);
 
-  const counts = {};
-
-  for (let item of items) {
-    const category = item.category;
-
-    if (counts[category]) {
-      counts[category] += 1;
-    } else {
-      counts[category] = 1;
+  const data = items.map(item=>{
+    return {
+      name: item.title, value: item.total_sales
     }
-  }
+  })
 
-  const data = [
-      { name: "A", value: 4 },
-      { name: "B", value: 7 },
-      { name: "C", value: 2 },
-    ];
+    if (items.length === 0) {
+      return <div>Loading chart...</div>;
+    }
 
     return (
     <div style={{ width: "100%", height: 300 }}>

@@ -1,15 +1,15 @@
 {
   "meta": {
-    "configPath": "/Users/svanwart/unca/csci344/spring2026/final-project/api-generator/api.config.yaml",
-    "generatedAt": "2026-04-22T17:02:16.441Z",
-    "seedDir": "data/sample-data"
+    "configPath": "C:\\Users\\atomi\\OneDrive\\Documents\\College\\Spring 2026\\CSCI 344\\final-project\\api-generator-main\\api.config.yaml",
+    "generatedAt": "2026-04-23T19:30:13.488Z",
+    "seedDir": "data\\sample-data"
   },
   "resources": [
     {
-      "type": "Sneaker",
-      "tableName": "sneakers",
-      "fileBase": "sneakers",
-      "path": "/api/sneakers",
+      "type": "Game",
+      "tableName": "games",
+      "fileBase": "games",
+      "path": "/api/games",
       "operations": [
         "list",
         "retrieve",
@@ -21,38 +21,24 @@
       "ownershipEnabled": true,
       "fields": [
         {
-          "name": "name",
+          "name": "title",
           "type": "string",
           "storageType": "string",
           "required": true,
           "relation": null,
           "query": {
-            "param": "name",
+            "param": "title",
             "op": "contains"
           }
         },
         {
-          "name": "brand",
-          "type": "Brand",
-          "storageType": "integer",
-          "required": false,
-          "relation": {
-            "resourceType": "Brand",
-            "targetField": "id"
-          },
-          "query": {
-            "param": "brand",
-            "op": "eq"
-          }
-        },
-        {
-          "name": "price",
+          "name": "total_sales",
           "type": "number",
           "storageType": "number",
           "required": true,
           "relation": null,
           "query": {
-            "param": "price",
+            "param": "total_sales",
             "op": "eq"
           }
         },
@@ -65,34 +51,15 @@
           "query": null
         },
         {
-          "name": "size",
+          "name": "total_copies_sold",
           "type": "integer",
           "storageType": "integer",
-          "required": false,
+          "required": true,
           "relation": null,
           "query": {
-            "param": "size",
+            "param": "total_copies_sold",
             "op": "eq"
           }
-        },
-        {
-          "name": "is_available",
-          "type": "boolean",
-          "storageType": "boolean",
-          "required": false,
-          "relation": null,
-          "query": {
-            "param": "is_available",
-            "op": "eq"
-          }
-        },
-        {
-          "name": "description",
-          "type": "text",
-          "storageType": "text",
-          "required": false,
-          "relation": null,
-          "query": null
         }
       ],
       "permissions": {
@@ -104,98 +71,29 @@
       },
       "queryFilters": [
         {
-          "param": "name",
-          "fieldName": "name",
+          "param": "title",
+          "fieldName": "title",
           "op": "contains",
           "type": "string",
           "storageType": "string",
           "relation": null
         },
         {
-          "param": "brand",
-          "fieldName": "brand",
-          "op": "eq",
-          "type": "Brand",
-          "storageType": "integer",
-          "relation": {
-            "resourceType": "Brand",
-            "targetField": "id"
-          }
-        },
-        {
-          "param": "price",
-          "fieldName": "price",
+          "param": "total_sales",
+          "fieldName": "total_sales",
           "op": "eq",
           "type": "number",
           "storageType": "number",
           "relation": null
         },
         {
-          "param": "size",
-          "fieldName": "size",
+          "param": "total_copies_sold",
+          "fieldName": "total_copies_sold",
           "op": "eq",
           "type": "integer",
           "storageType": "integer",
           "relation": null
         },
-        {
-          "param": "is_available",
-          "fieldName": "is_available",
-          "op": "eq",
-          "type": "boolean",
-          "storageType": "boolean",
-          "relation": null
-        },
-        {
-          "param": "owner_id",
-          "fieldName": "owner_id",
-          "op": "eq",
-          "type": "integer",
-          "storageType": "integer",
-          "relation": null
-        }
-      ]
-    },
-    {
-      "type": "Brand",
-      "tableName": "brands",
-      "fileBase": "brands",
-      "path": "/api/brands",
-      "operations": [
-        "list",
-        "retrieve",
-        "create",
-        "update",
-        "delete"
-      ],
-      "shareable": false,
-      "ownershipEnabled": true,
-      "fields": [
-        {
-          "name": "name",
-          "type": "string",
-          "storageType": "string",
-          "required": true,
-          "relation": null,
-          "query": null
-        },
-        {
-          "name": "description",
-          "type": "text",
-          "storageType": "text",
-          "required": false,
-          "relation": null,
-          "query": null
-        }
-      ],
-      "permissions": {
-        "list": "public",
-        "retrieve": "public",
-        "create": "user",
-        "update": "owner",
-        "delete": "owner"
-      },
-      "queryFilters": [
         {
           "param": "owner_id",
           "fieldName": "owner_id",
@@ -230,16 +128,16 @@
           "query": null
         },
         {
-          "name": "sneaker",
-          "type": "Sneaker",
+          "name": "game",
+          "type": "Game",
           "storageType": "integer",
           "required": true,
           "relation": {
-            "resourceType": "Sneaker",
+            "resourceType": "Game",
             "targetField": "id"
           },
           "query": {
-            "param": "sneaker",
+            "param": "game",
             "op": "eq"
           }
         }
@@ -253,123 +151,13 @@
       },
       "queryFilters": [
         {
-          "param": "sneaker",
-          "fieldName": "sneaker",
+          "param": "game",
+          "fieldName": "game",
           "op": "eq",
-          "type": "Sneaker",
+          "type": "Game",
           "storageType": "integer",
           "relation": {
-            "resourceType": "Sneaker",
-            "targetField": "id"
-          }
-        },
-        {
-          "param": "owner_id",
-          "fieldName": "owner_id",
-          "op": "eq",
-          "type": "integer",
-          "storageType": "integer",
-          "relation": null
-        }
-      ]
-    },
-    {
-      "type": "Order",
-      "tableName": "orders",
-      "fileBase": "orders",
-      "path": "/api/orders",
-      "operations": [
-        "list",
-        "retrieve",
-        "create",
-        "update",
-        "delete"
-      ],
-      "shareable": false,
-      "ownershipEnabled": true,
-      "fields": [
-        {
-          "name": "customer_name",
-          "type": "string",
-          "storageType": "string",
-          "required": true,
-          "relation": null,
-          "query": null
-        },
-        {
-          "name": "email",
-          "type": "string",
-          "storageType": "string",
-          "required": true,
-          "relation": null,
-          "query": null
-        },
-        {
-          "name": "status",
-          "type": "string",
-          "storageType": "string",
-          "required": true,
-          "relation": null,
-          "query": {
-            "param": "status",
-            "op": "contains"
-          }
-        },
-        {
-          "name": "total",
-          "type": "number",
-          "storageType": "number",
-          "required": true,
-          "relation": null,
-          "query": null
-        },
-        {
-          "name": "created_at",
-          "type": "datetime",
-          "storageType": "datetime",
-          "required": false,
-          "relation": null,
-          "query": null
-        },
-        {
-          "name": "sneaker",
-          "type": "Sneaker",
-          "storageType": "integer",
-          "required": true,
-          "relation": {
-            "resourceType": "Sneaker",
-            "targetField": "id"
-          },
-          "query": {
-            "param": "sneaker",
-            "op": "eq"
-          }
-        }
-      ],
-      "permissions": {
-        "list": "owner",
-        "retrieve": "owner",
-        "create": "user",
-        "update": "owner",
-        "delete": "owner"
-      },
-      "queryFilters": [
-        {
-          "param": "status",
-          "fieldName": "status",
-          "op": "contains",
-          "type": "string",
-          "storageType": "string",
-          "relation": null
-        },
-        {
-          "param": "sneaker",
-          "fieldName": "sneaker",
-          "op": "eq",
-          "type": "Sneaker",
-          "storageType": "integer",
-          "relation": {
-            "resourceType": "Sneaker",
+            "resourceType": "Game",
             "targetField": "id"
           }
         },
