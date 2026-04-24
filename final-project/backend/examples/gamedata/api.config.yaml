@@ -1,0 +1,44 @@
+resources:
+  - type: Game
+    path: /api/games
+    operations: [list, retrieve, create, update, delete]
+    fields:
+      - name: title
+        type: string
+        required: true
+        query: true
+      - name: date_released
+        type: date
+        query: true
+        required: true
+      - name: photo
+        type: image_url
+        required: true
+      - name: total_units_sold
+        type: number
+        query: true
+        required: true
+    permissions:
+      list: public
+      retrieve: public
+      create: user
+      update: owner
+      delete: owner
+
+
+  - type: Favorite
+    path: /api/favorites
+    operations: [list, retrieve, create, update, delete]
+    fields:
+      - name: note
+        type: string
+      - name: game
+        type: Game
+        required: true
+        query: true
+    permissions:
+      list: owner
+      retrieve: owner
+      create: user
+      update: owner
+      delete: owner

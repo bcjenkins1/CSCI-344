@@ -8,14 +8,14 @@ resources:
         required: true
         query: true
       - name: date_released
-        type: #figure how to put date in there
+        type: date
         query: true
         required: true
       - name: photo
         type: image_url
         required: true
       - name: total_units_sold
-        type: integer
+        type: number
         query: true
         required: true
     permissions:

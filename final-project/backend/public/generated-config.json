@@ -1,0 +1,175 @@
+{
+  "meta": {
+    "configPath": "C:\\Users\\atomi\\OneDrive\\Documents\\College\\Spring 2026\\CSCI 344\\final-project\\backend\\examples\\gamedata\\api.config.yaml",
+    "generatedAt": "2026-04-24T19:20:46.737Z",
+    "seedDir": "examples\\gamedata"
+  },
+  "resources": [
+    {
+      "type": "Game",
+      "tableName": "games",
+      "fileBase": "games",
+      "path": "/api/games",
+      "operations": [
+        "list",
+        "retrieve",
+        "create",
+        "update",
+        "delete"
+      ],
+      "shareable": false,
+      "ownershipEnabled": true,
+      "fields": [
+        {
+          "name": "title",
+          "type": "string",
+          "storageType": "string",
+          "required": true,
+          "relation": null,
+          "query": {
+            "param": "title",
+            "op": "contains"
+          }
+        },
+        {
+          "name": "date_released",
+          "type": "date",
+          "storageType": "date",
+          "required": true,
+          "relation": null,
+          "query": {
+            "param": "date_released",
+            "op": "eq"
+          }
+        },
+        {
+          "name": "photo",
+          "type": "image_url",
+          "storageType": "image_url",
+          "required": true,
+          "relation": null,
+          "query": null
+        },
+        {
+          "name": "total_units_sold",
+          "type": "number",
+          "storageType": "number",
+          "required": true,
+          "relation": null,
+          "query": {
+            "param": "total_units_sold",
+            "op": "eq"
+          }
+        }
+      ],
+      "permissions": {
+        "list": "public",
+        "retrieve": "public",
+        "create": "user",
+        "update": "owner",
+        "delete": "owner"
+      },
+      "queryFilters": [
+        {
+          "param": "title",
+          "fieldName": "title",
+          "op": "contains",
+          "type": "string",
+          "storageType": "string",
+          "relation": null
+        },
+        {
+          "param": "date_released",
+          "fieldName": "date_released",
+          "op": "eq",
+          "type": "date",
+          "storageType": "date",
+          "relation": null
+        },
+        {
+          "param": "total_units_sold",
+          "fieldName": "total_units_sold",
+          "op": "eq",
+          "type": "number",
+          "storageType": "number",
+          "relation": null
+        },
+        {
+          "param": "owner_id",
+          "fieldName": "owner_id",
+          "op": "eq",
+          "type": "integer",
+          "storageType": "integer",
+          "relation": null
+        }
+      ]
+    },
+    {
+      "type": "Favorite",
+      "tableName": "favorites",
+      "fileBase": "favorites",
+      "path": "/api/favorites",
+      "operations": [
+        "list",
+        "retrieve",
+        "create",
+        "update",
+        "delete"
+      ],
+      "shareable": false,
+      "ownershipEnabled": true,
+      "fields": [
+        {
+          "name": "note",
+          "type": "string",
+          "storageType": "string",
+          "required": false,
+          "relation": null,
+          "query": null
+        },
+        {
+          "name": "game",
+          "type": "Game",
+          "storageType": "integer",
+          "required": true,
+          "relation": {
+            "resourceType": "Game",
+            "targetField": "id"
+          },
+          "query": {
+            "param": "game",
+            "op": "eq"
+          }
+        }
+      ],
+      "permissions": {
+        "list": "owner",
+        "retrieve": "owner",
+        "create": "user",
+        "update": "owner",
+        "delete": "owner"
+      },
+      "queryFilters": [
+        {
+          "param": "game",
+          "fieldName": "game",
+          "op": "eq",
+          "type": "Game",
+          "storageType": "integer",
+          "relation": {
+            "resourceType": "Game",
+            "targetField": "id"
+          }
+        },
+        {
+          "param": "owner_id",
+          "fieldName": "owner_id",
+          "op": "eq",
+          "type": "integer",
+          "storageType": "integer",
+          "relation": null
+        }
+      ]
+    }
+  ]
+}
