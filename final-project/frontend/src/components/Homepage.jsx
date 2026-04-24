@@ -3,6 +3,8 @@ import BarChartComponent from "./BarChart";
 
 export default function Homepage({ username }) {
 
+  const [mode, setMode] = useState("list");
+  
   const [items, setItems] = useState([]);
   const baseURL = import.meta.env.VITE_API_BASE_URL;
 
