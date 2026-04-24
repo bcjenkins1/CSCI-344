@@ -14,7 +14,7 @@ export default function BarChartComponent({ items }) {
 
   const data = items.map(item=>{
     return {
-      name: item.title, value: item.total_sales
+      name: item.title, value: item.total_units_sold
     }
   })
 

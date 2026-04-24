@@ -7,14 +7,14 @@ resources:
         type: string
         required: true
         query: true
-      - name: total_sales
-        type: number
+      - name: date_released
+        type: #figure how to put date in there
         query: true
         required: true
       - name: photo
         type: image_url
         required: true
-      - name: total_copies_sold
+      - name: total_units_sold
         type: integer
         query: true
         required: true
