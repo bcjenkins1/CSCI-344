@@ -20,6 +20,16 @@ export default function Homepage({ username }) {
     getItems();
   }, []);
 
+  function showMode () {
+    if (mode === "list") {
+  return <List items={items} />;
+}
+
+if (mode === "bar") {
+  return <BarChartComponent items={items} />;
+}
+  }
+
   return (
     <main className="mx-auto max-w-4xl px-4 py-10">
       <section className="rounded border border-slate-200 bg-white p-6">
@@ -29,8 +39,14 @@ export default function Homepage({ username }) {
         ) : null
         }
 
-        <List items={items}/>
-        <BarChartComponent items={items}/>
+        <button 
+          className="px-8 py-2 rounded-md mr-2 mb-5 mt-5 border border-black" 
+          onClick={()=>setMode("list")}>List</button>
+        <button 
+          className="px-8 py-2 rounded-md mr-2 mb-5 mt-5 border border-black" 
+          onClick={()=>setMode("bar")}>Bar</button>
+
+        {showMode()}
 
       </section>
     </main>
