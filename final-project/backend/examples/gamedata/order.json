@@ -9,9 +9,19 @@
       "file": "games.csv"
     },
     {
-      "type": "Favorite",
-      "path": "/api/favorites",
-      "file": "favorites.csv"
+      "type": "Weapon",
+      "path": "/api/weapons",
+      "file": "weapons.csv"
+    },
+    {
+      "type": "Monster",
+      "path": "/api/monsters",
+      "file": "monsters.csv"
+    },
+    {
+      "type": "Hunt",
+      "path": "/api/hunts",
+      "file": "hunts.csv"
     }
   ],
   "usersFile": "users.csv",

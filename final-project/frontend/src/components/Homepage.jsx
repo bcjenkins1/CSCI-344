@@ -34,18 +34,21 @@ if (mode === "bar") {
     <main className="mx-auto max-w-4xl px-4 py-10">
       <section className="rounded border border-slate-200 bg-white p-6">
         <h1 className="text-2xl font-semibold">Monster Hunter JP Data</h1>
+        <p className="mt-2 text-md text-slate-500">As of Dec-31 2025</p>
         {username ? (
           <p className="mt-2 text-sm text-slate-500">Logged in as {username}</p>
         ) : null
         }
-
-        <button 
-          className="px-8 py-2 rounded-md mr-2 mb-5 mt-5 border border-black" 
-          onClick={()=>setMode("list")}>List</button>
-        <button 
-          className="px-8 py-2 rounded-md mr-2 mb-5 mt-5 border border-black" 
-          onClick={()=>setMode("bar")}>Bar</button>
-
+        <div className="flex flex-col md:flex-row justify-between mt-8 gap-4">
+          <div className="flex items-center gap-1">
+            <button 
+              className="px-8 py-1.5 rounded-md mr-2 mb-5 mt-5 border border-black" 
+              onClick={()=>setMode("list")}>List</button>
+            <button 
+              className="px-8 py-1.5 rounded-md mr-2 mb-5 mt-5 border border-black" 
+              onClick={()=>setMode("bar")}>Bar</button>
+          </div>
+        </div>
         {showMode()}
 
       </section>

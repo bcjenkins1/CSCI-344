@@ -1,8 +1,30 @@
 {
   "meta": {
     "configPath": "C:\\Users\\atomi\\OneDrive\\Documents\\College\\Spring 2026\\CSCI 344\\final-project\\backend\\examples\\gamedata\\api.config.yaml",
-    "generatedAt": "2026-04-24T19:20:46.737Z",
+    "generatedAt": "2026-04-29T20:05:16.475Z",
     "seedDir": "examples\\gamedata"
+  },
+  "userResource": {
+    "type": "User",
+    "tableName": "users",
+    "fields": [
+      {
+        "name": "role",
+        "type": "string",
+        "storageType": "string",
+        "required": true,
+        "default": "user",
+        "choices": [
+          "user",
+          "admin"
+        ],
+        "relation": null,
+        "query": {
+          "param": "role",
+          "op": "eq"
+        }
+      }
+    ]
   },
   "resources": [
     {
@@ -18,7 +40,7 @@
         "delete"
       ],
       "shareable": false,
-      "ownershipEnabled": true,
+      "ownershipEnabled": false,
       "fields": [
         {
           "name": "title",
@@ -65,9 +87,9 @@
       "permissions": {
         "list": "public",
         "retrieve": "public",
-        "create": "user",
-        "update": "owner",
-        "delete": "owner"
+        "create": "admin",
+        "update": "admin",
+        "delete": "admin"
       },
       "queryFilters": [
         {
@@ -76,7 +98,8 @@
           "op": "contains",
           "type": "string",
           "storageType": "string",
-          "relation": null
+          "relation": null,
+          "choices": null
         },
         {
           "param": "date_released",
@@ -84,7 +107,8 @@
           "op": "eq",
           "type": "date",
           "storageType": "date",
-          "relation": null
+          "relation": null,
+          "choices": null
         },
         {
           "param": "total_units_sold",
@@ -92,23 +116,98 @@
           "op": "eq",
           "type": "number",
           "storageType": "number",
-          "relation": null
-        },
-        {
-          "param": "owner_id",
-          "fieldName": "owner_id",
-          "op": "eq",
-          "type": "integer",
-          "storageType": "integer",
-          "relation": null
+          "relation": null,
+          "choices": null
         }
       ]
     },
     {
-      "type": "Favorite",
-      "tableName": "favorites",
-      "fileBase": "favorites",
-      "path": "/api/favorites",
+      "type": "Weapon",
+      "tableName": "weapons",
+      "fileBase": "weapons",
+      "path": "/api/weapons",
+      "operations": [
+        "list",
+        "retrieve",
+        "create",
+        "update",
+        "delete"
+      ],
+      "shareable": false,
+      "ownershipEnabled": false,
+      "fields": [
+        {
+          "name": "weapon",
+          "type": "string",
+          "storageType": "string",
+          "required": false,
+          "relation": null,
+          "query": null
+        },
+        {
+          "name": "image",
+          "type": "image_url",
+          "storageType": "image_url",
+          "required": false,
+          "relation": null,
+          "query": null
+        }
+      ],
+      "permissions": {
+        "list": "public",
+        "retrieve": "public",
+        "create": "admin",
+        "update": "admin",
+        "delete": "admin"
+      },
+      "queryFilters": []
+    },
+    {
+      "type": "Monster",
+      "tableName": "monsters",
+      "fileBase": "monsters",
+      "path": "/api/monsters",
+      "operations": [
+        "list",
+        "retrieve",
+        "create",
+        "update",
+        "delete"
+      ],
+      "shareable": false,
+      "ownershipEnabled": false,
+      "fields": [
+        {
+          "name": "monster",
+          "type": "string",
+          "storageType": "string",
+          "required": false,
+          "relation": null,
+          "query": null
+        },
+        {
+          "name": "image",
+          "type": "image_url",
+          "storageType": "image_url",
+          "required": false,
+          "relation": null,
+          "query": null
+        }
+      ],
+      "permissions": {
+        "list": "public",
+        "retrieve": "public",
+        "create": "admin",
+        "update": "admin",
+        "delete": "admin"
+      },
+      "queryFilters": []
+    },
+    {
+      "type": "Hunt",
+      "tableName": "hunts",
+      "fileBase": "hunts",
+      "path": "/api/hunts",
       "operations": [
         "list",
         "retrieve",
@@ -120,47 +219,71 @@
       "ownershipEnabled": true,
       "fields": [
         {
-          "name": "note",
-          "type": "string",
-          "storageType": "string",
-          "required": false,
+          "name": "time_seconds",
+          "type": "integer",
+          "storageType": "integer",
+          "required": true,
           "relation": null,
           "query": null
         },
         {
-          "name": "game",
-          "type": "Game",
+          "name": "weapon",
+          "type": "Weapon",
           "storageType": "integer",
           "required": true,
           "relation": {
-            "resourceType": "Game",
+            "resourceType": "Weapon",
             "targetField": "id"
           },
-          "query": {
-            "param": "game",
-            "op": "eq"
-          }
+          "query": null
+        },
+        {
+          "name": "weapon_source_monster",
+          "type": "Monster",
+          "storageType": "integer",
+          "required": true,
+          "relation": {
+            "resourceType": "Monster",
+            "targetField": "id"
+          },
+          "query": null
+        },
+        {
+          "name": "monster",
+          "type": "Monster",
+          "storageType": "integer",
+          "required": true,
+          "relation": {
+            "resourceType": "Monster",
+            "targetField": "id"
+          },
+          "query": null
+        },
+        {
+          "name": "rank",
+          "type": "string",
+          "storageType": "string",
+          "required": true,
+          "choices": [
+            "Low",
+            "High",
+            "G"
+          ],
+          "relation": null,
+          "query": null
         }
       ],
       "permissions": {
-        "list": "owner",
-        "retrieve": "owner",
+        "list": "public",
+        "retrieve": "public",
         "create": "user",
         "update": "owner",
-        "delete": "owner"
+        "delete": [
+          "owner",
+          "admin"
+        ]
       },
       "queryFilters": [
-        {
-          "param": "game",
-          "fieldName": "game",
-          "op": "eq",
-          "type": "Game",
-          "storageType": "integer",
-          "relation": {
-            "resourceType": "Game",
-            "targetField": "id"
-          }
-        },
         {
           "param": "owner_id",
           "fieldName": "owner_id",

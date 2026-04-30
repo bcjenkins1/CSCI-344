@@ -21,24 +21,67 @@ resources:
     permissions:
       list: public
       retrieve: public
-      create: user
-      update: owner
-      delete: owner
+      create: admin
+      update: admin
+      delete: admin
 
-
-  - type: Favorite
-    path: /api/favorites
+  - type: Weapon
+    path: /api/weapons
     operations: [list, retrieve, create, update, delete]
     fields:
-      - name: note
+      - name: weapon
         type: string
-      - name: game
-        type: Game
         required: true
-        query: true
+      - name: image
+        type: image_url
+        #required: true
     permissions:
-      list: owner
-      retrieve: owner
+      list: public
+      retrieve: public
+      create: admin
+      update: admin
+      delete: admin
+
+  - type: Monster
+    path: /api/monsters
+    operations: [list, retrieve, create, update, delete]
+    fields:
+      - name: monster
+        type: string
+        #required: true
+      - name: image
+        type: image_url
+        #required: true
+    permissions:
+      list: public
+      retrieve: public
+      create: admin
+      update: admin
+      delete: admin
+
+  - type: Hunt
+    path: /api/hunts
+    operations: [list, retrieve, create, update, delete]
+    fields:
+      - name: time_seconds
+        type: integer
+        required: true
+      - name: weapon
+        type: Weapon
+        required: true
+      - name: weapon_source_monster
+        type: Monster
+        required: true
+      - name: monster
+        type: Monster
+        required: true
+      - name: rank
+        type: string
+        choices: [Low, High, G]
+        required: true
+    permissions:
+      list: public
+      retrieve: public
       create: user
       update: owner
-      delete: owner
+      delete: [owner,admin]
