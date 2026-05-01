@@ -1,7 +1,7 @@
 {
   "meta": {
     "configPath": "C:\\Users\\atomi\\OneDrive\\Documents\\College\\Spring 2026\\CSCI 344\\final-project\\backend\\examples\\gamedata\\api.config.yaml",
-    "generatedAt": "2026-04-30T19:11:09.476Z",
+    "generatedAt": "2026-05-01T20:26:02.344Z",
     "seedDir": "examples\\gamedata"
   },
   "userResource": {
@@ -281,12 +281,18 @@
           "query": null
         },
         {
-          "name": "game_id",
-          "type": "integer",
+          "name": "game",
+          "type": "Game",
           "storageType": "integer",
           "required": true,
-          "relation": null,
-          "query": null
+          "relation": {
+            "resourceType": "Game",
+            "targetField": "id"
+          },
+          "query": {
+            "param": "game",
+            "op": "eq"
+          }
         }
       ],
       "permissions": {
@@ -300,6 +306,18 @@
         ]
       },
       "queryFilters": [
+        {
+          "param": "game",
+          "fieldName": "game",
+          "op": "eq",
+          "type": "Game",
+          "storageType": "integer",
+          "relation": {
+            "resourceType": "Game",
+            "targetField": "id"
+          },
+          "choices": null
+        },
         {
           "param": "owner_id",
           "fieldName": "owner_id",

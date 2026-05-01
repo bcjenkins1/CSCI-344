@@ -5,6 +5,7 @@ import List from "./List";
 export default function Homepage({ username }) {
 
   const [mode, setMode] = useState("list");
+  const [count, setCount] = useState(0);
   
   const [items, setItems] = useState([]);
   const baseURL = import.meta.env.VITE_API_BASE_URL;
@@ -20,9 +21,14 @@ export default function Homepage({ username }) {
     getItems();
   }, []);
 
+  function showComponent (newMode) {
+    setCount(count + 1);
+    setMode(newMode);
+  }
+
   function showMode () {
     if (mode === "list") {
-  return <List items={items} />;
+  return <List items={items} count={count}/>;
 }
 
 if (mode === "bar") {
@@ -43,10 +49,10 @@ if (mode === "bar") {
           <div className="flex items-center gap-1">
             <button 
               className="px-8 py-1.5 rounded-md mr-2 mb-5 mt-5 border border-black" 
-              onClick={()=>setMode("list")}>List</button>
+              onClick={()=>showComponent("list")}>List</button>
             <button 
               className="px-8 py-1.5 rounded-md mr-2 mb-5 mt-5 border border-black" 
-              onClick={()=>setMode("bar")}>Bar</button>
+              onClick={()=>showComponent("bar")}>Bar</button>
           </div>
         </div>
         {showMode()}

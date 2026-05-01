@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import Leaderboard from "./Leaderboard";
 
-export default function List ({ items }) {
+export default function List ({ items, count }) {
 
   const [mode, setMode] = useState("game_list");
   const [game, setGame] = useState(null);
@@ -10,6 +10,10 @@ export default function List ({ items }) {
     setMode("Leaderboard");
     setGame(game);
   }
+
+  useEffect(() => {
+    setMode("game_list");
+  }, [count]);
 
 
     if (mode === "game_list") {

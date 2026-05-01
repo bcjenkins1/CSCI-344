@@ -82,9 +82,10 @@ resources:
         type: string
         choices: [Low, High, G]
         required: true
-      - name: game_id
-        type: integer
+      - name: game
+        type: Game
         required: true
+        query: true
     permissions:
       list: public
       retrieve: public
