@@ -1,7 +1,7 @@
 {
   "meta": {
     "configPath": "C:\\Users\\atomi\\OneDrive\\Documents\\College\\Spring 2026\\CSCI 344\\final-project\\backend\\examples\\gamedata\\api.config.yaml",
-    "generatedAt": "2026-04-29T20:05:16.475Z",
+    "generatedAt": "2026-04-30T19:11:09.476Z",
     "seedDir": "examples\\gamedata"
   },
   "userResource": {
@@ -140,7 +140,7 @@
           "name": "weapon",
           "type": "string",
           "storageType": "string",
-          "required": false,
+          "required": true,
           "relation": null,
           "query": null
         },
@@ -181,7 +181,7 @@
           "name": "monster",
           "type": "string",
           "storageType": "string",
-          "required": false,
+          "required": true,
           "relation": null,
           "query": null
         },
@@ -190,6 +190,14 @@
           "type": "image_url",
           "storageType": "image_url",
           "required": false,
+          "relation": null,
+          "query": null
+        },
+        {
+          "name": "game_id",
+          "type": "integer",
+          "storageType": "integer",
+          "required": true,
           "relation": null,
           "query": null
         }
@@ -269,6 +277,14 @@
             "High",
             "G"
           ],
+          "relation": null,
+          "query": null
+        },
+        {
+          "name": "game_id",
+          "type": "integer",
+          "storageType": "integer",
+          "required": true,
           "relation": null,
           "query": null
         }

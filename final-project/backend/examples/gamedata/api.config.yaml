@@ -48,10 +48,13 @@ resources:
     fields:
       - name: monster
         type: string
-        #required: true
+        required: true
       - name: image
         type: image_url
         #required: true
+      - name: game_id
+        type: integer
+        required: true
     permissions:
       list: public
       retrieve: public
@@ -78,6 +81,9 @@ resources:
       - name: rank
         type: string
         choices: [Low, High, G]
+        required: true
+      - name: game_id
+        type: integer
         required: true
     permissions:
       list: public

@@ -1,2 +1,2 @@
-id,owner_id,monster,image
-1,2,Monster1,
+id,owner_id,monster,image,game_id
+1,2,Rathalos,,13
